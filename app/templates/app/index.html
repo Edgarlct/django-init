@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Listes des questions</h1>
+{% for qst in questions %}
+   <p>{{qst.text}}</p>
+<a href="{% url 'app:delete' qst.id %}">delete</a>
+<a href="{% url 'app:detail' qst.id %}">detail</a>
+{% endfor %}
+
+<!-- add question -->
+
+<form action="{% url 'app:add_question' %}" method="post">
+    {% csrf_token %}
+    <input type="text" name="question">
+    <input type="submit" value="Ajouter">
+</body>
+</html>

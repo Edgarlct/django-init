@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>{{question.id}}</p>
+<form action="{% url 'app:put' question.id %}" method="post">
+    {% csrf_token %}
+    <input type="text" value="{{question.text}}" name="question">
+    <input type="submit" value="Modifier">
+</form>
+</body>
+</html>
